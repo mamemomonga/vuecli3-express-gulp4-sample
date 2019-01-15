@@ -1,8 +1,8 @@
 {
-  "name": "Vue-cli3 + Express + Gulp4 sample application",
+  "name": "vuecli3-express-gulp4-sample",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "vue-cli3, Express, Gulp4 Sample Application",
+  "main": "gulpfile.babel.js",
   "scripts": {
     "gulp": "gulp",
     "watch": "gulp watch",
@@ -12,6 +12,10 @@
   },
   "author": "mamemomonga",
   "license": "MIT",
+  "repository": {
+	  "type": "git",
+	  "url": "https://github.com/mamemomonga/vuecli3-express-gulp4-sample.git"
+  },
   "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
