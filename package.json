@@ -1,0 +1,35 @@
+{
+  "name": "Vue-cli3 + Express + Gulp4 sample application",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gulp": "gulp",
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "pm2": "pm2",
+    "start": "pm2 start dist/prod/server.js --name server -i 0"
+  },
+  "author": "mamemomonga",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "fancy-log": "^1.3.3",
+    "gulp": "^4.0.0",
+    "querystring": "^0.2.0",
+    "request": "^2.88.0",
+    "rimraf": "^2.6.3",
+    "webpack-stream": "^5.2.1"
+  },
+  "devDependencies": {
+    "gulp-live-server": "^0.0.31"
+  }
+}
