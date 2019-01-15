@@ -13,8 +13,8 @@
   "author": "mamemomonga",
   "license": "MIT",
   "repository": {
-	  "type": "git",
-	  "url": "https://github.com/mamemomonga/vuecli3-express-gulp4-sample.git"
+    "type": "git",
+    "url": "https://github.com/mamemomonga/vuecli3-express-gulp4-sample.git"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
@@ -28,6 +28,7 @@
     "express": "^4.16.4",
     "fancy-log": "^1.3.3",
     "gulp": "^4.0.0",
+    "pm2": "^3.2.8",
     "querystring": "^0.2.0",
     "request": "^2.88.0",
     "rimraf": "^2.6.3",
