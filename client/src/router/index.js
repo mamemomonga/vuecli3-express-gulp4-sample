@@ -2,10 +2,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Index from '@/views/index'
-import Page1 from '@/views/page1'
-import Page2 from '@/views/page2'
-import Sample from '@/views/sample'
+import Index  from '../views/index'
+import Page1  from '../views/page1'
+import Page2  from '../views/page2'
+import Sample from '../views/sample'
 
 Vue.use(VueRouter)
 
