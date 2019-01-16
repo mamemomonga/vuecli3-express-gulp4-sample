@@ -74,11 +74,9 @@ productionモードの設定
 # コンテナ環境
 
 * dockerおよびdocker-composeが必要。
-* 開発はネイティブ環境で行うことをおすすめします。
 * 最初にproduction環境を構築したイメージが生成されます。
-* development.sh では プロジェクトのディレクトリが /home/app/app にマウントされます。
 
-## 準備
+## 準備(production, development共通)
 
 	$ docker-compose build
 
@@ -88,12 +86,26 @@ productionモードの設定
 
 ## development環境
 
+* Linux, Docker for Mac対応
+* bindfs volumeプラグインを使用して、ローカルのユーザとグループの食い違いを補正しています。
+
+bindfs プラグインインストールとvolume有効化
+
+	$ ./development.sh bindfs-install
+	Plugin "lebokus/bindfs" is requesting the following privileges:
+	 - mount: [/var/lib/docker/plugins/]
+	 - mount: [/]
+	 - device: [/dev/fuse]
+	 - capabilities: [CAP_SYS_ADMIN]
+	Do you grant the above permissions? [y/N] y
+
+	$ ./development.sh bindfs-create
+
+appユーザでログイン
+
 	$ ./development.sh app
 
-Linuxの場合ローカルフォルダのユーザ:グループが10000:10000になります。
-commitする場合など修正してください。
+volume無効化とbindfs プラグインアンインストール
 
-	$ sudo chown -R $(id -u):$(id -g) .
-
-で修正できます。
+	$ ./development.sh bindfs-remove
 
