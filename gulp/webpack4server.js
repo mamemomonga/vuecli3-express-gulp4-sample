@@ -30,7 +30,7 @@ export default function(){
 		devtool: PRODUCTION ? undefined : 'source-map',
 		mode: PRODUCTION ? 'production' : 'development',
 		module: { rules: [{
-			test: /\.es$/,
+			test: /\.js$/,
 			use: {
 				loader: 'babel-loader',
 				options: {

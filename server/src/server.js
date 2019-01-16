@@ -7,7 +7,7 @@ import history from 'connect-history-api-fallback'
 import querystring from 'querystring'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
-import routes from './routes.es'
+import routes from './routes.js'
 
 const serve_port=8888
 const app = express()

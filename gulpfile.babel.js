@@ -41,7 +41,7 @@ task('client:build',(done)=>{
 
 // serverのビルド
 task('server:build',()=>{
-	return src('./server/src/server.es')
+	return src('./server/src/server.js')
 	.pipe(webpack4server())
 	.pipe(dest(`dist/${ENV_PATH}/`))
 })
