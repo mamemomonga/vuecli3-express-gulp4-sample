@@ -1,6 +1,6 @@
 # Vue-cli3 + Express + Gulp4 サンプルコード
 
-# ローカル
+# ネイティブ環境
 
 ## node.js セットアップ
 
@@ -71,10 +71,10 @@ productionモードの設定
 
 	$ yarn pm2 monit
 
-# Docker環境
+# コンテナ環境
 
 * dockerおよびdocker-composeが必要。
-* 開発はローカル環境で行うことをおすすめします。
+* 開発はネイティブ環境で行うことをおすすめします。
 * 最初にproduction環境を構築したイメージが生成されます。
 * development.sh では プロジェクトのディレクトリが /home/app/app にマウントされます。
 

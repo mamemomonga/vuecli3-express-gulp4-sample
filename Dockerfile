@@ -1,7 +1,7 @@
 FROM node:11.6.0-alpine
 
 RUN set -xe && \
-	apk --update add tzdata curl su-exec && \
+	apk --update add tzdata curl su-exec git && \
 	cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
 	apk del tzdata && \
 	rm -rf /var/cache/apk/*
@@ -21,6 +21,7 @@ RUN set -xe && \
 	su-exec app yarn install --pure-lockfile && \
 	su-exec app yarn --cwd client install --pure-lockfile
 
+COPY .git /tmp/app/.git
 COPY client /tmp/app/client
 COPY server /tmp/app/server
 COPY babel.config.js /tmp/app/babel.config.js
