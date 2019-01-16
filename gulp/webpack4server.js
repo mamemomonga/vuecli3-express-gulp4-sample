@@ -4,7 +4,23 @@ import webpack from 'webpack-stream'
 
 const PRODUCTION = ( process.env.NODE_ENV === 'production' ) ? true : false
 
-export default function(args){
+const config = {
+	// 埋め込まないモジュール
+	externals: [
+		'express',
+		'request',
+		'cors',
+		'querystring',
+		'cookie-parser',
+		'body-parser',
+		'connect-history-api-fallback',
+		'morgan'
+	],
+	// ファイル名
+	filename: 'server.js'
+}
+
+export default function(){
 	return webpack({
 		node: {
 			__dirname: false,
@@ -22,9 +38,9 @@ export default function(args){
 				}
 			}
 		}]},
-		externals: args.externals,
+		externals: config.externals,
 		output: {
-			filename: args.filename,
+			filename: config.filename,
 			libraryTarget: 'commonjs2'
 		}
 	})
