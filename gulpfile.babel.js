@@ -85,6 +85,5 @@ task('serve',()=>{
 
 })
 
-task('watch',series('build','serve'))
-task('default',series('watch'))
+task('default',series('build','serve'))
 

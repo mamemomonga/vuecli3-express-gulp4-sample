@@ -1,5 +1,7 @@
 # Vue-cli3 + Express + Gulp4 サンプルコード
 
+# ローカル
+
 ## node.js セットアップ
 
 anyenvの導入
@@ -22,13 +24,12 @@ yarnの導入
 
 	$ curl -o- -L https://yarnpkg.com/install.sh | bash
 
-## 準備
+## モジュール導入
 
 	$ yarn install
 	$ yarn --cwd 'client' install
 
-
-## 利用方法
+## 開発
 
 developmentモードの設定(デフォルト)
 
@@ -45,9 +46,9 @@ productionモードの設定
 
 デバッグサーバ
 
-	$ yarn watch
+	$ yarn gulp
 
-# productionサーバ起動
+## productionサーバ起動
 
 ビルドと起動
 
@@ -70,4 +71,29 @@ productionモードの設定
 
 	$ yarn pm2 monit
 
+# Docker環境
+
+* dockerおよびdocker-composeが必要。
+* 開発はローカル環境で行うことをおすすめします。
+* 最初にproduction環境を構築したイメージが生成されます。
+* development.sh では プロジェクトのディレクトリが /home/app/app にマウントされます。
+
+## 準備
+
+	$ docker-compose build
+
+## production環境
+
+	$ docker-compose up -d
+
+## development環境
+
+	$ ./development.sh app
+
+Linuxの場合ローカルフォルダのユーザ:グループが10000:10000になります。
+commitする場合など修正してください。
+
+	$ sudo chown -R $(id -u):$(id -g) .
+
+で修正できます。
 
