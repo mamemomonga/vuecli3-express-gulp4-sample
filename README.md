@@ -46,7 +46,7 @@ productionモードの設定
 
 デバッグサーバ
 
-	$ yarn gulp
+	$ yarn serve
 
 ## productionサーバ起動
 

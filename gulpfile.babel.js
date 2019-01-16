@@ -1,4 +1,6 @@
+// ------------------
 // gulpfile.babel.js
+// ------------------
 'use strict'
 import { task, src, dest, series, parallel, watch } from 'gulp'
 import log from 'fancy-log'
@@ -8,7 +10,9 @@ import fs from 'fs'
 import { spawn } from 'child_process'
 import rimraf from 'rimraf'
 
+// ------------------
 // 動作モードの定義
+// ------------------
 const PRODUCTION = ( process.env.NODE_ENV === 'production' ) ? true : false
 const ENV_PATH = PRODUCTION ? 'prod': 'dev'
 if(PRODUCTION) {
@@ -18,7 +22,9 @@ if(PRODUCTION) {
 	process.env.NODE_ENV='development'
 }
 
+// ------------------
 // tasks
+// ------------------
 
 // クリーンアップ
 task('clean',(done)=>{
@@ -36,7 +42,11 @@ task('client:build',(done)=>{
 		outputDir: `../dist/${ENV_PATH}/public`,
 		productionSourceMap: false
 	}
-	fs.writeFileSync('client/vue.config.js','module.exports='+ JSON.stringify(vue_config) +'')
+	fs.writeFileSync('client/vue.config.js',
+		  "// このファイルは動的に生成されています\n"
+		+ "// 編集しないでください\n"
+		+ 'module.exports='+ JSON.stringify(vue_config) +''
+	)
 
 	// yarn --cwd client build の実行
 	spawn('yarn',['--cwd','client','build'],{ stdio: 'inherit' }).on('close',(code)=>{ done() })
@@ -65,7 +75,7 @@ task('server:build',()=>{
 
 task('build',series('clean','client:build','server:build'))
 
-task('serve',()=>{
+task('serve:start',()=>{
 
 	const server=gls(`dist/${ENV_PATH}/server.js`,{
 		env: { NODE_ENV: process.env.NODE_ENV }
@@ -84,5 +94,6 @@ task('serve',()=>{
 
 })
 
-task('default',series('build','serve'))
+task('serve',  series('build','serve:start'))
+task('default',series('serve'))
 

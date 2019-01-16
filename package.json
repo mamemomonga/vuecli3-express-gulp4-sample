@@ -5,6 +5,7 @@
   "main": "gulpfile.babel.js",
   "scripts": {
     "gulp": "gulp",
+    "serve": "gulp serve",
     "build": "gulp build",
     "pm2": "pm2",
     "start": "pm2 start dist/prod/server.js --name server -i 0"
