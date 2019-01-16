@@ -54,6 +54,8 @@ task('server:build',()=>{
 			'querystring',
 			'cookie-parser',
 			'body-parser',
+			'connect-history-api-fallback',
+			'morgan'
 		],
 		// ファイル名
 		filename: 'server.js'
@@ -70,15 +72,12 @@ task('serve',()=>{
 	})
 	server.start()
 
-	// 更新監視
-	if(PRODUCTION) { return }
-
-	watch('./src/server/*.es',series(
+	watch('./server/src/**/**',series(
 		'server:build',
 		(done)=>{ server.start(); done() }
 	))
 
-	watch('./client/**/**',series(
+	watch('./client/(public|src)/**',series(
 		'client:build',
 		(done)=>{ server.start(); done() }
 	))
