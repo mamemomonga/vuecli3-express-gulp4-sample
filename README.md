@@ -109,3 +109,5 @@ volume無効化とbindfs プラグインアンインストール
 
 	$ ./development.sh bindfs-remove
 
+	$ ./development.sh bindfs-uninstall
+
